@@ -34,14 +34,14 @@ public class Inventeur {
 	@Column(name="date_naiss")
 	private LocalDate date_nais;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="NUM_ENTREPRISE")
 	private Entreprise entreprise;
 	
-	@OneToMany(mappedBy="inventeur", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="inventeur", fetch=FetchType.EAGER)
 	private List<Brevet> brevets;
 	
-	private Inventeur() {
+	public Inventeur() {
 		super();
 	}
 	

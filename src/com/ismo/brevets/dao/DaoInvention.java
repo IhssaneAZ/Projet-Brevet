@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.hibernate.utils.HibernateUtils;
+import com.ismo.brevets.models.Brevet;
 import com.ismo.brevets.models.Inventeur;
 import com.ismo.brevets.models.Invention;
 
@@ -33,21 +34,38 @@ public class DaoInvention implements IDAO<Invention> {
 
 	@Override
 	public boolean save(Invention obj) {
-		// TODO Auto-generated method stub
+		Session s = HibernateUtils.getSessionFactory().getCurrentSession();
+		Transaction t = s.beginTransaction();
+		
+		Integer res = (Integer) s.save(obj); 
+		
+		t.commit();
+		s.close();
+		if(res!=null)
+			return true;
 		return false;
 	}
 
 	@Override
 	public boolean update(Invention obj) {
-		// TODO Auto-generated method stub
-		return false;
+		Session s = HibernateUtils.getSessionFactory().getCurrentSession();
+		Transaction t = s.beginTransaction();
+		s.update(obj);
+		t.commit();
+		s.close();
+		return true;
 	}
 
 	@Override
 	public boolean delete(Invention obj) {
-		// TODO Auto-generated method stub
-		return false;
+		Session s = HibernateUtils.getSessionFactory().getCurrentSession();
+		Transaction t = s.beginTransaction();
+		s.delete(obj);
+		t.commit();
+		s.close();
+		return true;
 	}
+
 	
 	
 

@@ -27,7 +27,7 @@ public class Invention {
 	@Column
 	private String resume;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="NUM_DOMAINE")
 	private Domaine domaine;
 	

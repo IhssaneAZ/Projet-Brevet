@@ -1,19 +1,25 @@
 package com.ismo.brevets.ihm.modelTable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import com.ismo.brevets.models.Entreprise;
+import com.ismo.brevets.dao.DAO;
+import com.ismo.brevets.metier.IMetier;
+import com.ismo.brevets.metier.MetierInvention;
+import com.ismo.brevets.models.Inventeur;
+import com.ismo.brevets.models.Invention;
 
-public class ModelTableEntreprise  extends AbstractTableModel{
+public class ModelTableInvention  extends AbstractTableModel{
 
-	String[] cols = {"Numero", "Raison sociale", "Activite", "CA", "Ville"};
-	List<Entreprise> entreprises;
+	String[] cols = {"Numero", "Descriptif", "Resume", "Domaine"};
+	List<Invention> inventions;
+
 	
-	public ModelTableEntreprise(List<Entreprise> entreprises) {
+	public ModelTableInvention(List<Invention> inventions) {
 		super();
-		this.entreprises = entreprises;
+		this.inventions = inventions;
 	}
 
 	@Override
@@ -31,19 +37,18 @@ public class ModelTableEntreprise  extends AbstractTableModel{
 	@Override
 	public int getRowCount() {
 		// TODO Auto-generated method stub
-		return entreprises.size();
+		return inventions.size();
 	}
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		Entreprise e = entreprises.get(rowIndex);
+		Invention i = inventions.get(rowIndex);
 		
 		switch (columnIndex) {
-			case 0: return e.getNum();
-			case 1: return e.getNom().toUpperCase();
-			case 2: return e.getActivite();
-			case 3: return e.getCa();
-			case 4: return e.getVille();
+			case 0: return i.getNum();
+			case 1: return i.getDescriptif().toUpperCase();
+			case 2: return i.getResume();
+			case 3: return i.getDomaine().getNom();
 		}
 		return null;
 	}

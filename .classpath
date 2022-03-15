@@ -2,9 +2,10 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/DriverMysql"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HibernateLib"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/japser1"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JfreechartLib"/>
+	<classpathentry kind="lib" path="C:/Users/lenovo/Downloads/mysql-connector-java-8.0.27.jar"/>
+	<classpathentry kind="lib" path="C:/Users/lenovo/Downloads/javax.persistence-2.1.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JasperLib"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JChart"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

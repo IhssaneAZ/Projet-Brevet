@@ -21,25 +21,25 @@ public class MetierEntreprise implements IMetier<Entreprise> {
 	@Override
 	public Entreprise getOne(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.getOne(id);
 	}
 
 	@Override
 	public boolean save(Entreprise obj) {
 		// TODO Auto-generated method stub
-		return false;
+		return dao.save(obj);
 	}
 
 	@Override
 	public boolean update(Entreprise obj) {
 		// TODO Auto-generated method stub
-		return false;
+		return dao.update(obj);
 	}
 
 	@Override
 	public boolean delete(Entreprise obj) {
 		// TODO Auto-generated method stub
-		return false;
+		return dao.delete(obj);
 	}
 
 }

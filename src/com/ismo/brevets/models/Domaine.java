@@ -22,7 +22,7 @@ public class Domaine {
 	@Column(name="NOM_DOMAINE")
 	private String nom;
 	
-	@OneToMany(mappedBy="domaine", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="domaine", fetch=FetchType.EAGER)
 	private List<Invention> inventions;
 	
 	public Domaine() {

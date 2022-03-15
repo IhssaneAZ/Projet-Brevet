@@ -4,16 +4,17 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import com.ismo.brevets.models.Entreprise;
 
-public class ModelTableEntreprise  extends AbstractTableModel{
+import com.ismo.brevets.models.Inventeur;
 
-	String[] cols = {"Numero", "Raison sociale", "Activite", "CA", "Ville"};
-	List<Entreprise> entreprises;
+public class ModelTableInventeur extends AbstractTableModel {
+
+	String[] cols = {"Numero", "Nom", "Prénom", "Adresse", "Date de Naissance","Entreprise"};
+	List<Inventeur> inventeurs;
 	
-	public ModelTableEntreprise(List<Entreprise> entreprises) {
+	public ModelTableInventeur(List<Inventeur> inventeurs) {
 		super();
-		this.entreprises = entreprises;
+		this.inventeurs = inventeurs;
 	}
 
 	@Override
@@ -31,23 +32,24 @@ public class ModelTableEntreprise  extends AbstractTableModel{
 	@Override
 	public int getRowCount() {
 		// TODO Auto-generated method stub
-		return entreprises.size();
+		return inventeurs.size();
 	}
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		Entreprise e = entreprises.get(rowIndex);
+		Inventeur i = inventeurs.get(rowIndex);
 		
 		switch (columnIndex) {
-			case 0: return e.getNum();
-			case 1: return e.getNom().toUpperCase();
-			case 2: return e.getActivite();
-			case 3: return e.getCa();
-			case 4: return e.getVille();
+			case 0: return i.getNum();
+			case 1: return i.getNom().toUpperCase();
+			case 2: return i.getPrenom().toUpperCase();
+			case 3: return i.getAdresse();
+			case 4: return i.getDate_nais();
+			case 5: return i.getEntreprise().getNom();
 		}
 		return null;
 	}
-	
+//	String.format("E%04d"
 	@Override
 	public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
 		// TODO Auto-generated method stub

@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
+
 @Table
 @Entity
 public class Brevet {
@@ -29,11 +31,11 @@ public class Brevet {
 	@Column(name="DATE_VALIDATION")
 	private LocalDate dateValidation;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="NUM_INVENTION")
 	private Invention invention;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="NUM_INVENTEUR")
 	private Inventeur inventeur;
 	

@@ -32,20 +32,37 @@ public class DaoDomaine implements IDAO<Domaine> {
 
 	@Override
 	public boolean save(Domaine obj) {
-		// TODO Auto-generated method stub
+		Session s = HibernateUtils.getSessionFactory().getCurrentSession();
+		Transaction t = s.beginTransaction();
+		
+		Integer res = (Integer) s.save(obj); 
+		
+		t.commit();
+		s.close();
+		if(res!=null)
+			return true;
 		return false;
 	}
 
 	@Override
 	public boolean update(Domaine obj) {
-		// TODO Auto-generated method stub
-		return false;
+		Session s = HibernateUtils.getSessionFactory().getCurrentSession();
+		Transaction t = s.beginTransaction();
+		s.update(obj);
+		t.commit();
+		s.close();
+		return true;
 	}
 
 	@Override
 	public boolean delete(Domaine obj) {
-		// TODO Auto-generated method stub
-		return false;
+		Session s = HibernateUtils.getSessionFactory().getCurrentSession();
+		Transaction t = s.beginTransaction();
+		s.delete(obj);
+		t.commit();
+		s.close();
+		return true;
 	}
+
 
 }

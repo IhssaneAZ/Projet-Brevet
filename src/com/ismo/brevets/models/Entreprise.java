@@ -32,7 +32,7 @@ public class Entreprise {
 	@Column
 	private String ville;
 	
-	@OneToMany(mappedBy="entreprise", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="entreprise", fetch=FetchType.EAGER)
 	private List<Inventeur> inventeurs;
 	
 	public Entreprise() {
